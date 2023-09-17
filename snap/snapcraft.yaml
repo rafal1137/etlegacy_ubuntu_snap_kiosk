@@ -1,0 +1,171 @@
+name: etlegacy
+version: "v2.81.1"
+summary: FPS Game
+description: |
+  Welcome to ET: Legacy, an open source project that aims to create a fully compatible client
+  and server for the popular online FPS game Wolfenstein: Enemy Territory - whose gameplay
+  is still considered unmatched by many, despite its great age.
+
+base: core22
+compression: lzo
+confinement: devmode
+
+apps:
+  etlegacy:
+    command-chain: &_command-chain
+      - bin/graphics-core22-wrapper
+      - bin/wayland-launch
+    command: &_command usr/local/bin/etl.x86_64
+    plugs: &_plugs
+      - opengl
+      - wayland
+      - hardware-observe
+      - audio-playback
+      - joystick
+    environment: &_environment
+      PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native
+      PULSE_SYSTEM: 1
+      PULSE_RUNTIME_PATH: /var/run/pulse
+      LD_LIBRARY_PATH: ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}:${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/pulseaudio
+
+  daemon:
+    daemon: simple
+    restart-delay: 3s
+    restart-condition: always
+    command-chain: *_command-chain
+    command: *_command
+    plugs: *_plugs
+    environment: *_environment
+
+# This is one of four snippets that relate to providing the userspace graphics needed by your application.
+# You can treat this as "magic" so long as you don't need to make changes.
+# On the Mir website there's a lot more detail on [the graphics-core22 Snap interface](https://mir-server.io/docs/the-graphics-core22-snap-interface) and it's use.
+plugs:
+  graphics-core22:
+    interface: content
+    target: $SNAP/graphics
+    default-provider: mesa-core22
+
+environment:
+  # Other, generally useful environment settings...
+  # XDG config
+  XDG_CACHE_HOME:  $SNAP_USER_COMMON/.cache
+  XDG_CONFIG_HOME: $SNAP_USER_DATA/.config
+  XDG_CONFIG_DIRS: $SNAP/etc/xdg
+  XDG_DATA_DIRS:   $SNAP/usr/local/share:$SNAP/usr/share
+  # XKB config
+  XKB_CONFIG_ROOT: $SNAP/usr/share/X11/xkb
+
+# The `layout` ensures that files can be found by applications where they are expected by the toolkit or application.
+layout:
+  /usr/share/libdrm:
+    bind: $SNAP/graphics/libdrm
+  /usr/share/drirc.d:
+    symlink: $SNAP/graphics/drirc.d
+  # Other, generally useful paths
+  /usr/share/fonts:
+    bind: $SNAP/usr/share/fonts
+  /usr/share/icons:
+    bind: $SNAP/usr/share/icons
+  /usr/share/sounds:
+    bind: $SNAP/usr/share/sounds
+  /etc/fonts:
+    bind: $SNAP/etc/fonts
+  /usr/share/alsa:
+    bind: $SNAP/usr/share/alsa
+
+parts:
+  etlegacy:
+    plugin: cmake
+    cmake-parameters:
+      - -DCROSS_COMPILE32=OFF
+      - -DBUNDLED_LIBS=OFF
+      - -DINSTALL_EXTRA=OFF
+    source-type: tar
+    source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
+    build-packages:
+      - g++-multilib
+      - gcc-multilib
+      - make
+      - libcurl4-openssl-dev
+      - libsdl2-dev
+      - liblua5.4-dev
+      - libopenal-dev
+      - libtheora-dev
+      - libglew-dev
+      - libogg-dev
+      - libvorbis-dev
+      - libgl1-mesa-dev
+      - freeglut3-dev
+      - zlib1g-dev
+      - libminizip-dev
+      - libturbojpeg0-dev
+      - libssl-dev
+      - libcjson-dev
+      - libfreetype6-dev
+      - libpng-dev
+      - libsqlite3-dev
+      - libx11-dev
+      - libc-devtools
+      - libc6-dev
+      - nasm
+      - zip
+
+    stage-packages:
+      - libsdl2-2.0-0
+      - libcjson1
+      - libcurl4
+      - libminizip1
+      - libtheora-bin
+      - libvorbisfile3
+      - libglew2.2
+      - libgl1
+      - libglu1-mesa
+      - freeglut3
+      - libjpeg8
+      - libstdc++6
+      - liblua5.4-0
+      - libsqlite3-0
+
+  paks:
+    plugin: nil
+    after: [etlegacy]
+    override-prime: |
+      snapcraftctl prime
+      curl https://mirror.etlegacy.com/etmain/pak0.pk3 -o /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/pak0.pk3
+      curl https://mirror.etlegacy.com/etmain/pak1.pk3 -o /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/pak1.pk3
+      curl https://mirror.etlegacy.com/etmain/pak2.pk3 -o /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/pak2.pk3
+  
+  # Some utility scripts for setting up the Wayland environment
+  setup:
+    plugin: dump
+    source: wayland-launch
+    override-build: |
+      # The plugs needed to run Wayland. (wayland-launch checks them, setup.sh connects them)
+      # You may add further plugs here if you want these options
+      PLUGS="opengl wayland graphics-core22 hardware-observe audio-playback joystick"
+      sed --in-place "s/%PLUGS%/$PLUGS/g" $CRAFT_PART_BUILD/bin/wayland-launch
+      sed --in-place "s/%PLUGS%/$PLUGS/g" $CRAFT_PART_BUILD/bin/setup.sh
+      craftctl default
+    stage-packages:
+      - inotify-tools
+
+  graphics-core22:
+    after:
+      # Your application packaging
+      - setup
+    source: https://github.com/MirServer/graphics-core22.git
+    plugin: dump
+    override-prime: |
+      craftctl default
+      ${CRAFT_PART_SRC}/bin/graphics-core22-cleanup mesa-core22 nvidia-core22
+      cd "$CRAFT_PRIME/usr/share/"
+      rm -rf bug drirc.d glvnd libdrm lintian man
+      rm -rf applications apport bash-completion dbus-1 doc-base doc gtk-doc\
+             help pkgconfig libthai metainfo themes thumbnailers xml
+    prime:
+      - bin/graphics-core22-wrapper
+
+architectures:
+  - build-on: amd64
+
