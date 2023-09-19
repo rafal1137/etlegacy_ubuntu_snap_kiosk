@@ -27,4 +27,6 @@ jobs:
         with:
           use_lxd: ${{ matrix.os == 'ubuntu-18.04' }}
       - name: Build snap
+        env:
+         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_TOKEN }}
         run: sg lxd -c 'snapcraft --use-lxd'
