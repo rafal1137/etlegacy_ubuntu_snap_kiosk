@@ -26,7 +26,11 @@ jobs:
         uses: samuelmeuli/action-snapcraft@v2
         with:
           use_lxd: ${{ matrix.os == 'ubuntu-18.04' }}
-      - name: Build snap
-        env:
-         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_TOKEN }}
-        run: sg lxd -c 'snapcraft --use-lxd'
+      - name: Build SNAP
+      - uses: snapcore/action-build@v1
+        id: snapcraft
+      - uses: actions/upload-artifact@v3
+        with:
+          name: snap
+          path: ${{ steps.snapcraft.outputs.snap }}
+      
