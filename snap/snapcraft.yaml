@@ -134,9 +134,9 @@ parts:
     after: [etlegacy]
     override-prime: |
       snapcraftctl prime
-      curl https://mirror.etlegacy.com/etmain/pak0.pk3 -o /usr/local/lib/etlegacy/etmainpak0.pk3
-      curl https://mirror.etlegacy.com/etmain/pak1.pk3 -o /usr/local/lib/etlegacy/etmainpak1.pk3
-      curl https://mirror.etlegacy.com/etmain/pak2.pk3 -o /usr/local/lib/etlegacy/etmainpak2.pk3
+      curl https://mirror.etlegacy.com/etmain/pak0.pk3 -o /usr/local/lib/etlegacy/etmain/pak0.pk3
+      curl https://mirror.etlegacy.com/etmain/pak1.pk3 -o /usr/local/lib/etlegacy/etmain/pak1.pk3
+      curl https://mirror.etlegacy.com/etmain/pak2.pk3 -o /usr/local/lib/etlegacy/etmain/pak2.pk3
   #    cp ./*.pk3 /usr/local/lib/etlegacy/etmain
   
   # Some utility scripts for setting up the Wayland environment
