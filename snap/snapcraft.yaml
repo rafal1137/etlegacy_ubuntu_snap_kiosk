@@ -22,6 +22,7 @@ apps:
       - hardware-observe
       - audio-playback
       - joystick
+      - home
     environment: &_environment
       PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native
       PULSE_SYSTEM: 1
@@ -80,6 +81,7 @@ parts:
     cmake-parameters:
       - -DCROSS_COMPILE32=OFF
       - -DBUNDLED_LIBS=OFF
+      - -DRENDERER_DYNAMIC=OFF
       - -DINSTALL_EXTRA=OFF
     source-type: tar
     source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
@@ -132,9 +134,10 @@ parts:
     after: [etlegacy]
     override-prime: |
       snapcraftctl prime
-      curl https://mirror.etlegacy.com/etmain/pak0.pk3 -o /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/pak0.pk3
-      curl https://mirror.etlegacy.com/etmain/pak1.pk3 -o /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/pak1.pk3
-      curl https://mirror.etlegacy.com/etmain/pak2.pk3 -o /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/pak2.pk3
+      curl https://mirror.etlegacy.com/etmain/pak0.pk3 -o pak0.pk3
+      curl https://mirror.etlegacy.com/etmain/pak1.pk3 -o pak1.pk3
+      curl https://mirror.etlegacy.com/etmain/pak2.pk3 -o pak2.pk3
+      cp ./*.pk3 /root/parts/etlegacy/install/usr/local/lib/etlegacy/etmain/
   
   # Some utility scripts for setting up the Wayland environment
   setup:
