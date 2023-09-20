@@ -82,7 +82,7 @@ parts:
       - -DCROSS_COMPILE32=OFF
       - -DBUNDLED_LIBS=OFF
       - -DRENDERER_DYNAMIC=OFF
-      - -DINSTALL_EXTRA=OFF
+      - -DINSTALL_DEFAULT_BASEDIR=$SNAP_USER_DATA
     source-type: tar
     source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
     build-packages:
@@ -129,15 +129,6 @@ parts:
       - liblua5.4-0
       - libsqlite3-0
 
-#  paks:
-#    plugin: nil
-#    after: [etlegacy]
-#      snapcraftctl prime
-#      curl https://mirror.etlegacy.com/etmain/pak0.pk3 -o pak0.pk3
-#      curl https://mirror.etlegacy.com/etmain/pak1.pk3 -o pak1.pk3
-#      curl https://mirror.etlegacy.com/etmain/pak2.pk3 -o pak2.pk3
-#      cp ./*.pk3 /usr/local/lib/etlegacy/etmain/s
-  
   # Some utility scripts for setting up the Wayland environment
   setup:
     plugin: dump
