@@ -8,5 +8,3 @@ then
   else snapctl set daemon=false
   fi
 fi
-
-ls -s /usr/local/lib/etlegacy $SNAP_DATA/etlegacy
