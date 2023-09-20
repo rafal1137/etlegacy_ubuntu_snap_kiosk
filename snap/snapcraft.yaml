@@ -15,7 +15,7 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-    command: &_command usr/local/bin/etl.x86_64
+    command: &_command etlegacy-v2.81.1-x86_64/etl.x86_64
     plugs: &_plugs
       - opengl
       - wayland
