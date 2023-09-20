@@ -77,56 +77,13 @@ layout:
 
 parts:
   etlegacy:
-    plugin: cmake
-    cmake-parameters:
-      - -DCROSS_COMPILE32=OFF
-      - -DBUNDLED_LIBS=OFF
-      - -DRENDERER_DYNAMIC=OFF
+    plugin: dump
     source-type: tar
-    source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
-    build-packages:
-      - g++-multilib
-      - gcc-multilib
-      - make
-      - libcurl4-openssl-dev
-      - libsdl2-dev
-      - liblua5.4-dev
-      - libopenal-dev
-      - libtheora-dev
-      - libglew-dev
-      - libogg-dev
-      - libvorbis-dev
-      - libgl1-mesa-dev
-      - freeglut3-dev
-      - zlib1g-dev
-      - libminizip-dev
-      - libturbojpeg0-dev
-      - libssl-dev
-      - libcjson-dev
-      - libfreetype6-dev
-      - libpng-dev
-      - libsqlite3-dev
-      - libx11-dev
-      - libc-devtools
-      - libc6-dev
-      - nasm
-      - zip
-
-    stage-packages:
-      - libsdl2-2.0-0
-      - libcjson1
-      - libcurl4
-      - libminizip1
-      - libtheora-bin
-      - libvorbisfile3
-      - libglew2.2
+    source: https://www.etlegacy.com/download/file/553
+    stage-packages:      
       - libgl1
       - libglu1-mesa
-      - freeglut3
-      - libjpeg8
       - libstdc++6
-      - liblua5.4-0
-      - libsqlite3-0
 
   # Some utility scripts for setting up the Wayland environment
   setup:
