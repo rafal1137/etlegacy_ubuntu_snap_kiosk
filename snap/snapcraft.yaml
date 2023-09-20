@@ -82,7 +82,6 @@ parts:
       - -DCROSS_COMPILE32=OFF
       - -DBUNDLED_LIBS=OFF
       - -DRENDERER_DYNAMIC=OFF
-      - -DINSTALL_DEFAULT_BASEDIR=$SNAP_USER_DATA
     source-type: tar
     source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
     build-packages:
