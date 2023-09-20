@@ -82,7 +82,7 @@ parts:
       - -DCROSS_COMPILE32=OFF
       - -DBUNDLED_LIBS=OFF
       - -DRENDERER_DYNAMIC=OFF
-      - -DCMAKE_INSTALL_PREFIX=$SNAP_USER_DATA
+      - -DCMAKE_INSTALL_PREFIX=$ENV{HOME}/snap/etlegacy/current/.etlegacy/
     source-type: tar
     source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
     build-packages:
