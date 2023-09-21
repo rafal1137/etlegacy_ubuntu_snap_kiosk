@@ -15,7 +15,7 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-    command: &_command usr/local/bin/etl.x86_64 +set fs_basepath=/snap/etlegacy/current/usr/local/lib/etlegacy
+    command: &_command usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
       - wayland
