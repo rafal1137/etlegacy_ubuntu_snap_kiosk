@@ -25,9 +25,16 @@ jobs:
       - name: Build SNAP
         uses: snapcore/action-build@v1
         id: snapcraft
-      - name: Upload
-        uses: actions/upload-artifact@v3
+      - name: Publish
+        uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         with:
-          name: snap
-          path: ${{ steps.snapcraft.outputs.snap }}
+          snap: ${{ steps.snapcraft.outputs.snap }}
+          release: edge
+#      - name: Upload
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: snap
+#          path: ${{ steps.snapcraft.outputs.snap }}
       
