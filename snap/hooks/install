@@ -9,5 +9,5 @@ then
   fi
 fi
 
-cp -R $SNAP/usr/local/lib/etlegacy/legacy $SNAP_USER_DATA/.etlegacy
-cp -R $SNAP/usr/local/lib/etlegacy/etmain $SNAP_USER_DATA/.etlegacy
+cp -R /snap/etlegacy/current/usr/local/lib/etlegacy/legacy $HOME/snap/etlegacy/current/.etlegacy/
+cp -R /snap/etlegacy/current/usr/local/lib/etlegacy/etmain $HOME/snap/etlegacy/current/.etlegacy/
