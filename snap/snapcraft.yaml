@@ -23,6 +23,7 @@ apps:
       - audio-playback
       - joystick
       - home
+      - network
     environment: &_environment
       PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native
       PULSE_SYSTEM: 1
