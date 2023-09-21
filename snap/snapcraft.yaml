@@ -82,8 +82,9 @@ parts:
       - -DCROSS_COMPILE32=OFF
       - -DBUNDLED_LIBS=OFF
       - -DRENDERER_DYNAMIC=OFF
-    source-type: tar
-    source: https://github.com/etlegacy/etlegacy/archive/refs/tags/v2.81.1.tar.gz
+    source-type: git
+    source-tag: v2.81.1
+    source: https://github.com/etlegacy/etlegacy
     build-packages:
       - g++-multilib
       - gcc-multilib
