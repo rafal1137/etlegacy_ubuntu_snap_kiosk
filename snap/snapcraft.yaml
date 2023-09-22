@@ -1,4 +1,4 @@
-	name: etlegacy
+name: etlegacy
 version: "v2.81.1"
 summary: FPS Game
 description: |
@@ -15,9 +15,7 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-      mkdir "$SNAP_USER_DATA/.etlegacy"
-      #- cp -R "$SNAP/usr/local/lib/etlegacy/legacy" "$SNAP_USER_DATA/.etlegacy"
-      #- cp -R "$SNAP/usr/local/lib/etlegacy/etmain" "$SNAP_USER_DATA/.etlegacy"
+      - hooks/copy.sh
     command: &_command usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
