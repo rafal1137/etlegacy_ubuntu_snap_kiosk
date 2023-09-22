@@ -9,5 +9,7 @@ then
   fi
 fi
 
+exec ${HOME}/snap/etlegacy/current/bin/setup.sh
+
 cp -R $SNAP/usr/local/lib/etlegacy/legacy $SNAP_USER_DATA/.etlegacy
 cp -R $SNAP/usr/local/lib/etlegacy/etmain $SNAP_USER_DATA/.etlegacy
