@@ -15,8 +15,8 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-      - cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-      - cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+      - cp -R $SNAP/usr/local/lib/etlegacy/legacy $SNAP_USER_DATA/.etlegacy
+      - cp -R $SNAP/usr/local/lib/etlegacy/etmain $SNAP_USER_DATA/.etlegacy
     command: &_command usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
