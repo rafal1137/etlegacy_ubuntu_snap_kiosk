@@ -1,12 +1,6 @@
 #!/bin/sh
 set -e
 
-DIR= ${SNAP_USER_DATA}/.etlegacy
-if [ -d "$DIR" ]; then
-   echo "'$DIR' found, please wait ..."
-else
-   mkdir ${SNAP_USER_DATA}/.etlegacy
-   cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
-   cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-   echo "Warning: '$DIR' created, please wait ..."
-fi
+cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
+
