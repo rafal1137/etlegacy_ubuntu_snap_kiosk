@@ -15,7 +15,7 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-      - hooks/copy.sh
+      - hooks/copy
     command: &_command usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
@@ -137,7 +137,7 @@ parts:
     override-build: |
       # The plugs needed to run Wayland. (wayland-launch checks them, setup.sh connects them)
       # You may add further plugs here if you want these options
-      PLUGS="opengl wayland graphics-core22 hardware-observe audio-playback joystick"
+      PLUGS="opengl wayland graphics-core22 hardware-observe audio-playback joystick network"
       sed --in-place "s/%PLUGS%/$PLUGS/g" $CRAFT_PART_BUILD/bin/wayland-launch
       sed --in-place "s/%PLUGS%/$PLUGS/g" $CRAFT_PART_BUILD/bin/setup.sh
       craftctl default
