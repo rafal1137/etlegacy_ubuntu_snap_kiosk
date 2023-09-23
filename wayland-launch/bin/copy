@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
 
-sudo mkdir ${SNAP_USER_DATA}/.etlegacy
-sudo cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-sudo cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+mkdir ${SNAP_USER_DATA}/.etlegacy
+cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
