@@ -1,8 +1,16 @@
 #!/bin/sh
 set -e
 
-if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
-    mkdir ${SNAP_USER_DATA}/.etlegacy
+# Create etmain dir if not exist
+if [ ! -d ${SNAP_USER_DATA}/.etlegacy/etmain ]; then
+    mkdir ${SNAP_USER_DATA}/.etlegacy/etmain
     cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+fi
+
+# Create legacy dir if not exist
+if [ ! -d ${SNAP_USER_DATA}/.etlegacy/legacy ]; then
+    mkdir ${SNAP_USER_DATA}/.etlegacy/legacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
 fi
+
+${SNAP}/usr/local/bin/etl.x86_64
