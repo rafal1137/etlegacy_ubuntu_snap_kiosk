@@ -161,7 +161,7 @@ parts:
       - bin/graphics-core22-wrapper
 
 architectures:
-  - build-on: amd64
-  - build-on: i386
-  - build-on: arm64
+  - amd64
+  - i386
+  - arm64
 
