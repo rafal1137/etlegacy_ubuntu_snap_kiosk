@@ -32,6 +32,7 @@ jobs:
         uses: docker/setup-qemu-action@v1
       - name: Build SNAP
         uses: diddlesnaps/snapcraft-multiarch-action@v1
+        id: snapcraft
         with:
           architecture: ${{ matrix.platform }}
       - name: Publish
@@ -39,7 +40,7 @@ jobs:
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         with:
-          snap: ${{ steps.outputs.snap }}
+          snap: ${{ steps.snapcraft.outputs.snap }}
           release: edge
 #      - name: Upload
 #        uses: actions/upload-artifact@v3
