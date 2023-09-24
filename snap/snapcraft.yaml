@@ -87,8 +87,8 @@ parts:
     source-tag: v2.81.1
     source: https://github.com/etlegacy/etlegacy
     build-packages:
-      - g++-multilib
-      - gcc-multilib
+      - g++
+      - gcc
       - make
       - libcurl4-openssl-dev
       - libsdl2-dev
