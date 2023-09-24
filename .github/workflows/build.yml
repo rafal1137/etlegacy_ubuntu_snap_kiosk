@@ -13,6 +13,12 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        platform:
+        - amd64
+        - arm64
+#        - i386
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -22,15 +28,18 @@ jobs:
           submodules: true
           fetch-depth: 1
 
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v1
       - name: Build SNAP
-        uses: snapcore/action-build@v1
-        id: snapcraft
+        uses: diddlesnaps/snapcraft-multiarch-action@v1
+        with:
+          architecture: ${{ matrix.platform }}
       - name: Publish
         uses: snapcore/action-publish@v1
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         with:
-          snap: ${{ steps.snapcraft.outputs.snap }}
+          snap: ${{ steps.outputs.snap }}
           release: edge
 #      - name: Upload
 #        uses: actions/upload-artifact@v3
