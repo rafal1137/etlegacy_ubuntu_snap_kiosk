@@ -15,8 +15,7 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-      - bin/copy
-    command: &_command usr/local/bin/etl.x86_64
+    command: &_command bin/copy
     plugs: &_plugs
       - opengl
       - wayland
