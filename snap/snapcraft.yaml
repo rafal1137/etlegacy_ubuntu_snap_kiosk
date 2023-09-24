@@ -16,6 +16,7 @@ apps:
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
       - bin/copy
+    command: &_command usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
       - wayland
@@ -34,6 +35,7 @@ apps:
     restart-delay: 3s
     restart-condition: always
     command-chain: *_command-chain
+    command: *_command
     plugs: *_plugs
     environment: *_environment
 
