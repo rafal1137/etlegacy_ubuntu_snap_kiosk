@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
+    mkdir ${SNAP_USER_DATA}/.etlegacy
+    if [ ! -d ${SNAP_USER_DATA}/.etlegacy/etmain ]; then
+         cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+    fi
+    if [ ! -d ${SNAP_USER_DATA}/.etlegacy/legacy ]; then
+         cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
+    fi
+fi
+
+${SNAP}/usr/local/bin/etl.x86_64
