@@ -16,7 +16,7 @@ apps:
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
       - bin/run
-    command: &_command desktop-launch usr/local/bin/etl.x86_64
+    command: &_command usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
       - wayland
