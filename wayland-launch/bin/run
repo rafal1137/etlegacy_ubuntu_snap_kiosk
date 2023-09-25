@@ -7,4 +7,4 @@ if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
     cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
 fi
 
-#${SNAP}/usr/local/bin/etl.x86_64
+${SNAP}/usr/local/bin/etl.x86_64
