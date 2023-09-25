@@ -15,7 +15,8 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-    command: &_command bin/run
+      - bin/run
+    command: &_command desktop-launch usr/local/bin/etl.x86_64
     plugs: &_plugs
       - opengl
       - wayland
@@ -159,14 +160,4 @@ parts:
              help pkgconfig libthai metainfo themes thumbnailers xml
     prime:
       - bin/graphics-core22-wrapper
-
-#architectures:
-#  - build-on: [amd64]
-#    build-for: [amd64]
-#  - build-on: [amd64, arm64]
-#    build-for: [arm64]
-#  - build-for: amd64 arm64
-#  - build-on: i386
-#  - build-for: i386
-#  - build-for: arm64
 
