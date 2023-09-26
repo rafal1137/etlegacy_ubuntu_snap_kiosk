@@ -13,7 +13,7 @@ fi
 
 checksum=`mktemp`
 cat >$checksum <<'EOF'
-41cbbc1afb8438bc8fc74a64a171685550888856005111cbf9af5255f659ae36  et-linux-2.60.x86.run
+41cbbc1afb8438bc8fc74a64a171685550888856005111cbf9af5255f659ae36  ${SNAP_USER_DATA}/et-linux-2.60.x86.run
 EOF
 
 echo "Fetching Wolf:ET assets data files..."
@@ -24,7 +24,7 @@ fi
 echo "Verifying assets data files integrity"
 sha256sum -c $checksum || exit 1
 echo "Installing assets..."
-chmod +x et-linux-2.60.x86.run
-./et-linux-2.60.x86.run --noexec --target ${toplevel}
+chmod +x ${SNAP_USER_DATA}/et-linux-2.60.x86.run
+${SNAP_USER_DATA}/et-linux-2.60.x86.run --noexec --target ${toplevel}
 rm -rf ${toplevel}/{bin,Docs,README,pb,openurl.sh,CHANGES,ET.xpm} ${toplevel}/setup.{data,sh} ${toplevel}/etmain/{*.cfg,*.so,*.txt,*.dat,mp_bin.pk3}
-rm -f et-linux-2.60.x86.run
+rm -f ${SNAP_USER_DATA}/et-linux-2.60.x86.run
