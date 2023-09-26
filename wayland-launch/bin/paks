@@ -9,7 +9,6 @@ else
 fi
 }
 
-echo "Fetching Wolf:ET assets data files..."
 if [ ! -f ${SNAP_USER_DATA}/pak0.pk3 ]; then
 	cpack_downloader https://mirror.etlegacy.com/etmain/pak0.pk3
 fi
@@ -21,5 +20,3 @@ fi
 if [ ! -f ${SNAP_USER_DATA}/pak2.pk3 ]; then
 	cpack_downloader https://mirror.etlegacy.com/etmain/pak2.pk3
 fi
-
-

@@ -15,7 +15,6 @@ apps:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
-      - bin/paks
     command: &_command bin/run
     plugs: &_plugs
       - opengl

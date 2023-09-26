@@ -1,10 +1,31 @@
 #!/bin/sh
 set -e
 
+cpack_downloader() {
+if [ -f /usr/bin/curl ]; then
+	curl -P ${SNAP_USER_DATA} $1
+else
+	wget -P ${SNAP_USER_DATA} $1
+fi
+}
+
+if [ ! -f ${SNAP_USER_DATA}/pak0.pk3 ]; then
+	cpack_downloader https://mirror.etlegacy.com/etmain/pak0.pk3
+fi
+
+if [ ! -f ${SNAP_USER_DATA}/pak1.pk3 ]; then
+	cpack_downloader https://mirror.etlegacy.com/etmain/pak1.pk3
+fi
+
+if [ ! -f ${SNAP_USER_DATA}/pak2.pk3 ]; then
+	cpack_downloader https://mirror.etlegacy.com/etmain/pak2.pk3
+fi
+
 if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
     mkdir ${SNAP_USER_DATA}/.etlegacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
+    cp ${SNAP_USER_DATA}/*.pk3 ${SNAP_USER_DATA}/.etlegacy/etmain
 fi
 
 ${SNAP}/usr/local/bin/etl.x86_64
