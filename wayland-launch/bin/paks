@@ -21,11 +21,11 @@ if [ ! -f et-linux-2.60.x86.run ]; then
 	cpack_downloader http://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/et/linux/et-linux-2.60.x86.run
 fi
 
-# This needs to be fixed
+# This needs to be fixed 
 #echo "Verifying assets data files integrity" 
 #sha256sum -c $checksum || exit 1
 echo "Installing assets..."
-#chmod +x ${SNAP_USER_DATA}/et-linux-2.60.x86.run
+chmod +x ${SNAP_USER_DATA}/et-linux-2.60.x86.run
 ${SNAP_USER_DATA}/et-linux-2.60.x86.run --noexec --target ${toplevel}
 rm -rf ${toplevel}/{bin,Docs,README,pb,openurl.sh,CHANGES,ET.xpm} ${toplevel}/setup.{data,sh} ${toplevel}/etmain/{*.cfg,*.so,*.txt,*.dat,mp_bin.pk3}
 rm -f ${SNAP_USER_DATA}/et-linux-2.60.x86.run
