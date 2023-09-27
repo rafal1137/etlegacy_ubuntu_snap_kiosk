@@ -9,24 +9,22 @@ else
 fi
 }
 
-if [ ! -f ${SNAP_USER_DATA}/pak0.pk3 ]; then
-	cpack_downloader https://mirror.etlegacy.com/etmain/pak0.pk3
-fi
-
-if [ ! -f ${SNAP_USER_DATA}/pak1.pk3 ]; then
-	cpack_downloader https://mirror.etlegacy.com/etmain/pak1.pk3
-fi
-
-if [ ! -f ${SNAP_USER_DATA}/pak2.pk3 ]; then
-	cpack_downloader https://mirror.etlegacy.com/etmain/pak2.pk3
-fi
-
 if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
     mkdir ${SNAP_USER_DATA}/.etlegacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-    mv ${SNAP_USER_DATA}/*.pk3 ${SNAP_USER_DATA}/.etlegacy/etmain
+    
+    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak0.pk3 ]; then
+	cpack_downloader https://mirror.etlegacy.com/etmain/pak0.pk3
+    fi
+
+    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak1.pk3 ]; then
+	cpack_downloader https://mirror.etlegacy.com/etmain/pak1.pk3
+    fi
+
+    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak2.pk3 ]; then
+	cpack_downloader https://mirror.etlegacy.com/etmain/pak2.pk3
+    fi
 fi
 
-${SNAP}/bin/setup.sh
 ${SNAP}/usr/local/bin/etl.x86_64
