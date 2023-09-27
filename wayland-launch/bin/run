@@ -25,7 +25,8 @@ if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
     mkdir ${SNAP_USER_DATA}/.etlegacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
     cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-    cp ${SNAP_USER_DATA}/*.pk3 ${SNAP_USER_DATA}/.etlegacy/etmain
+    mv ${SNAP_USER_DATA}/*.pk3 ${SNAP_USER_DATA}/.etlegacy/etmain
 fi
 
+${SNAP}/bin/setup.sh
 ${SNAP}/usr/local/bin/etl.x86_64
