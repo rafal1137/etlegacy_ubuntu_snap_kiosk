@@ -3,9 +3,9 @@ set -e
 
 cpack_downloader() {
 if [ -f /usr/bin/curl ]; then
-	curl -P ${SNAP_USER_DATA} $1
+	curl -P ${SNAP_USER_DATA}/.etlegacy/etmain $1
 else
-	wget -P ${SNAP_USER_DATA} $1
+	wget -P ${SNAP_USER_DATA}/.etlegacy/etmain $1
 fi
 }
 
