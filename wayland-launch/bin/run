@@ -14,12 +14,12 @@ if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
     
     if [ ! -d ${SNAP_USER_DATA}/.etlegacy/etmain ]; then
 	mkdir ${SNAP_USER_DATA}/.etlegacy/etmain
-    	cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy/etmain
+    	cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
     fi
     
     if [ ! -d ${SNAP_USER_DATA}/.etlegacy/legacy ]; then
 	mkdir ${SNAP_USER_DATA}/.etlegacy/legacy
-    	cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy/legacy
+    	cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
     fi
     
     if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak0.pk3 ]; then
