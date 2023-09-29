@@ -129,6 +129,7 @@ parts:
       - libstdc++6
       - liblua5.4-0
       - libsqlite3-0
+      - wget
 
   # Some utility scripts for setting up the Wayland environment
   setup:
@@ -159,14 +160,4 @@ parts:
              help pkgconfig libthai metainfo themes thumbnailers xml
     prime:
       - bin/graphics-core22-wrapper
-
-#architectures:
-#  - build-on: [amd64]
-#    build-for: [amd64]
-#  - build-on: [amd64, arm64]
-#    build-for: [arm64]
-#  - build-for: amd64 arm64
-#  - build-on: i386
-#  - build-for: i386
-#  - build-for: arm64
 
