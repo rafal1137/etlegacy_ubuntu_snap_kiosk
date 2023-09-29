@@ -35,8 +35,10 @@ if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
     fi
 fi
 
-case "${SNAPCRAFT_ARCH_TRIPLET}" in
- amd64) ${SNAP}/usr/local/bin/etl.x86_64 ;;
-    *) ${SNAP}/usr/local/bin/etl ;;
+case "${SNAP_ARCH}" in
+	amd64)
+ 		${SNAP}/usr/local/bin/etl.x86_64 ;;
+	arm64) 
+		${SNAP}/usr/local/bin/etl ;;
 esac
 
