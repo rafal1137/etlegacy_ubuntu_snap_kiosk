@@ -13,8 +13,8 @@ confinement: devmode
 slots:
   content:
     allow-auto-connection:
-      plug-publisher-id:
-        - $SLOT_PUBLISHER_ID
+#      plug-publisher-id:
+#        - $SLOT_PUBLISHER_ID
       plug-attributes:
         content: $SLOT(content)
 
