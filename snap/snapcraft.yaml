@@ -11,10 +11,10 @@ compression: lzo
 confinement: devmode
 
 slots:
-  content:
+  etlegacy:
     allow-auto-connection:
-#      plug-publisher-id:
-#        - $SLOT_PUBLISHER_ID
+      plug-publisher-id:
+        - $SLOT_PUBLISHER_ID
       plug-attributes:
         content: $SLOT(content)
 
