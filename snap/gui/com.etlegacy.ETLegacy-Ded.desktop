@@ -1,13 +1,12 @@
 [Desktop Entry]
 Type=Application
-Name=ET: Legacy
+Name=ET: Legacy Dedicated
 GenericName=World War II first-person shooter
 Comment=World War II first-person shooter
 Icon=${SNAP}/usr/local/share/icons/hicolor/scalable/apps/etl.svg
-Exec=etl
+Exec=etl-ded
 Terminal=false
 MimeType=x-scheme-handler/et;
 Categories=Game;ActionGame;
 StartupNotify=false
 Keywords=team-based;multiplayer;tactical;WWII;enemy;territory;etl;etlegacy;
-PrefersNonDefaultGPU=true

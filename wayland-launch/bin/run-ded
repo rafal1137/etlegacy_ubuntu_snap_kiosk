@@ -40,8 +40,8 @@ done
 
 case "${SNAP_ARCH}" in
 	amd64)
- 		${SNAP}/usr/local/bin/etl.x86_64 ;;
+ 		${SNAP}/usr/local/bin/etlded.x86_64 ;;
 	arm64) 
-		${SNAP}/usr/local/bin/etl ;;
+		${SNAP}/usr/local/bin/etlded ;;
 esac
 

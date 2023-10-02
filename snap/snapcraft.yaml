@@ -10,16 +10,8 @@ base: core22
 compression: lzo
 confinement: devmode
 
-slots:
-  etlegacy:
-    allow-auto-connection:
-      plug-publisher-id:
-        - $SLOT_PUBLISHER_ID
-      plug-attributes:
-        content: $SLOT(content)
-
 apps:
-  etlegacy:
+  etl:
     command-chain: &_command-chain
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
@@ -36,6 +28,15 @@ apps:
       PULSE_SYSTEM: 1
       PULSE_RUNTIME_PATH: /var/run/pulse
       LD_LIBRARY_PATH: ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}:${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/pulseaudio
+
+  etl-ded:
+    command: bin/run-ded
+    plugs:
+      - hardware-observe
+      - network
+      - network-bind
+    environment:
+      LD_LIBRARY_PATH: ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}
 
   daemon:
     daemon: simple
@@ -84,13 +85,13 @@ layout:
     bind: $SNAP/usr/share/alsa
 
 parts:
-  etlegacy:
+  etl:
     plugin: cmake
     cmake-parameters:
       - -DCROSS_COMPILE32=OFF
       - -DBUNDLED_LIBS=OFF
       - -DRENDERER_DYNAMIC=OFF
-      - -DINSTALL_EXTRA=OFF
+      - -DINSTALL_OMNIBOT=OFF
     source-type: git
     source-tag: v2.81.1
     source: https://github.com/etlegacy/etlegacy
