@@ -3,36 +3,36 @@ set -e
 
 pack_downloader() {
 if [ -f /usr/bin/curl ]; then
-	curl -P ${SNAP_USER_DATA}/.etlegacy/etmain $1
+	curl -P ${SNAP_USER_DATA}/.etlded/etmain $1
 else
-	wget -P ${SNAP_USER_DATA}/.etlegacy/etmain $1
+	wget -P ${SNAP_USER_DATA}/.etlded/etmain $1
 fi
 }
 
 for dir in */ ;
 do
-	if [ ! -d ${SNAP_USER_DATA}/.etlegacy ]; then
-	    mkdir ${SNAP_USER_DATA}/.etlegacy
+	if [ ! -d ${SNAP_USER_DATA}/.etlded ]; then
+	    mkdir ${SNAP_USER_DATA}/.etlded
 	    
-	    if [ ! -d ${SNAP_USER_DATA}/.etlegacy/etmain ]; then
-		mkdir ${SNAP_USER_DATA}/.etlegacy/etmain
-	    	cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlegacy
+	    if [ ! -d ${SNAP_USER_DATA}/.etlded/etmain ]; then
+		mkdir ${SNAP_USER_DATA}/.etlded/etmain
+	    	cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlded
 	    fi
 	    
-	    if [ ! -d ${SNAP_USER_DATA}/.etlegacy/legacy ]; then
-		mkdir ${SNAP_USER_DATA}/.etlegacy/legacy
-	    	cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
+	    if [ ! -d ${SNAP_USER_DATA}/.etlded/legacy ]; then
+		mkdir ${SNAP_USER_DATA}/.etlded/legacy
+	    	cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlded
 	    fi
 	    
-	    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak0.pk3 ]; then
+	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak0.pk3 ]; then
 		pack_downloader https://mirror.etlegacy.com/etmain/pak0.pk3
 	    fi
 
-	    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak1.pk3 ]; then
+	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak1.pk3 ]; then
 		pack_downloader https://mirror.etlegacy.com/etmain/pak1.pk3
 	    fi
 
-	    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak2.pk3 ]; then
+	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak2.pk3 ]; then
 		pack_downloader https://mirror.etlegacy.com/etmain/pak2.pk3
 	    fi
 	fi
