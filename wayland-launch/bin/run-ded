@@ -1,0 +1,47 @@
+#!/bin/sh
+set -e
+
+pack_downloader() {
+if [ -f /usr/bin/curl ]; then
+	curl -P ${SNAP_USER_DATA}/.etlded/etmain $1
+else
+	wget -P ${SNAP_USER_DATA}/.etlded/etmain $1
+fi
+}
+
+for dir in */ ;
+do
+	if [ ! -d ${SNAP_USER_DATA}/.etlded ]; then
+	    mkdir ${SNAP_USER_DATA}/.etlded
+	    
+	    if [ ! -d ${SNAP_USER_DATA}/.etlded/etmain ]; then
+		mkdir ${SNAP_USER_DATA}/.etlded/etmain
+	    	cp -R ${SNAP}/usr/local/lib/etlegacy/etmain ${SNAP_USER_DATA}/.etlded
+	    fi
+	    
+	    if [ ! -d ${SNAP_USER_DATA}/.etlded/legacy ]; then
+		mkdir ${SNAP_USER_DATA}/.etlded/legacy
+	    	cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlded
+	    fi
+	    
+	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak0.pk3 ]; then
+		pack_downloader https://mirror.etlegacy.com/etmain/pak0.pk3
+	    fi
+
+	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak1.pk3 ]; then
+		pack_downloader https://mirror.etlegacy.com/etmain/pak1.pk3
+	    fi
+
+	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak2.pk3 ]; then
+		pack_downloader https://mirror.etlegacy.com/etmain/pak2.pk3
+	    fi
+	fi
+done
+
+case "${SNAP_ARCH}" in
+	amd64)
+ 		${SNAP}/usr/local/bin/etlded.x86_64 +set fs_homepath ${SNAP_USER_DATA}/.etlded +set g_protect 1 +set omnibot_enable 1 +set omnibot_path "${SNAP_USER_DATA}/.etlded/legacy/omni-bot" +exec etl_server.cfg ;;
+	arm64) 	
+		${SNAP}/usr/local/bin/etlded +set fs_homepath ${SNAP_USER_DATA}/.etlded +set g_protect 1 +set omnibot_enable 1 +set omnibot_path "${SNAP_USER_DATA}/.etlded/legacy/omni-bot" +exec etl_server.cfg ;;
+esac
+
