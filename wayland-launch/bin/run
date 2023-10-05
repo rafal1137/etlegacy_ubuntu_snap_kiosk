@@ -42,6 +42,7 @@ case "${SNAP_ARCH}" in
 	amd64)
  		${SNAP}/usr/local/bin/etl.x86_64 ;;
 	arm64) 
-		${SNAP}/usr/local/bin/etl ;;
+		# We will launch etl with prefix since snapcraft compiled it with it.
+		${SNAP}/usr/local/bin/etl.aarch64 ;;
 esac
 
