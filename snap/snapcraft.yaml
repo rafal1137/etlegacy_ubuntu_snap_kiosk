@@ -141,6 +141,10 @@ parts:
       - libsqlite3-0
       - wget
 
+    override-prime: |
+      snapcraftctl prime
+      
+
   # Some utility scripts for setting up the Wayland environment
   setup:
     plugin: dump
