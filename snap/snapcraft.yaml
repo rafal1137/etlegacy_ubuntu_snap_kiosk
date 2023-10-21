@@ -92,6 +92,7 @@ parts:
       - -DBUNDLED_LIBS=OFF
       - -DRENDERER_DYNAMIC=OFF
       - -DINSTALL_OMNIBOT=OFF
+      - -DBUILD_MOD_PK3=OFF
     source-type: git
     source-tag: v2.81.1
     source: https://github.com/etlegacy/etlegacy
