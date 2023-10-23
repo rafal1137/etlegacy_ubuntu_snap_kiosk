@@ -1,5 +1,5 @@
 name: etlegacy
-version: "v2.81.1+git"
+version: "v2.81.1"
 summary: FPS Game
 description: |
   Welcome to ET: Legacy, an open source project that aims to create a fully compatible client
@@ -94,7 +94,7 @@ parts:
       - -DINSTALL_OMNIBOT=OFF
       - -DBUILD_MOD_PK3=OFF
     source-type: git
-#    source-tag: v2.81.1
+    source-tag: v2.81.1
     source: https://github.com/etlegacy/etlegacy
     build-packages:
       - g++
