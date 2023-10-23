@@ -141,6 +141,7 @@ parts:
       - libsqlite3-0
       - wget
       - unzip
+      - curl
 
     override-prime: |
       snapcraftctl prime
