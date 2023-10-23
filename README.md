@@ -1,5 +1,5 @@
 # ET Legacy on Snap
-## Ubuntu/Ubuntu Frame IoT and others Limux distributions that support Snap
+## Ubuntu/Ubuntu Frame IoT and others Linux distributions that support Snap
 
 To install ET Legacy Snap.
 ```
