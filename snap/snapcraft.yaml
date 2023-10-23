@@ -140,15 +140,6 @@ parts:
       - liblua5.4-0
       - libsqlite3-0
       - wget
-      - unzip
-      - curl
-
-    override-prime: |
-      snapcraftctl prime
-      wget `curl https://www.etlegacy.com/download | grep "Legacy mod 32-bit binaries" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O etl.zip
-      unzip etl.zip
-      mv *.pk3 /usr/local/lib/etlegacy/legacy
-      rm *.zip qagame*
 
   # Some utility scripts for setting up the Wayland environment
   setup:

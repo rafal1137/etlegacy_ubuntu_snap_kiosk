@@ -21,7 +21,11 @@ do
 	    
 	    if [ ! -d ${SNAP_USER_DATA}/.etlegacy/legacy ]; then
 		mkdir ${SNAP_USER_DATA}/.etlegacy/legacy
-	    	cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
+		cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
+	    	wget `curl https://www.etlegacy.com/download | grep "Legacy mod 32-bit binaries" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O etl.zip
+		unzip etl.zip
+		mv *.pk3 ${SNAP_USER_DATA}/.etlegacy/legacy
+		rm *.zip qagame*
 	    fi
 	    
 	    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak0.pk3 ]; then
