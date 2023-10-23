@@ -24,8 +24,8 @@ do
 		cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
 	    	wget `curl https://www.etlegacy.com/download | grep "Legacy mod 32-bit binaries" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O ${SNAP_USER_DATA}/.etlegacy/etl.zip
 		unzip ${SNAP_USER_DATA}/.etlegacy/etl.zip
-		mv ${SNAP_USER_DATA}/.etlegacy/*.pk3 ${SNAP_USER_DATA}/.etlegacy/legacy
-		rm ${SNAP_USER_DATA}/.etlegacy/*.zip qagame*
+		mv ${SNAP_USER_DATA}/.etlegacy/etl/*.pk3 ${SNAP_USER_DATA}/.etlegacy/legacy
+		rm -rf ${SNAP_USER_DATA}/.etlegacy/etl
 	    fi
 	    
 	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak0.pk3 ]; then
