@@ -141,6 +141,7 @@ parts:
       - libsqlite3-0
       - wget
       - curl
+      - unzip
 
   # Some utility scripts for setting up the Wayland environment
   setup:
