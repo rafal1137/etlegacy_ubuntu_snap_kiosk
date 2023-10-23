@@ -1,5 +1,15 @@
-# Developer Guide and Examples for Embedding IoT GUI with Ubuntu Frame
+# ET Legacy on Snap
+## Ubuntu/Ubuntu Frame IoT and others Limux distributions that support Snap
 
-This repository provides a generic Snapcraft recipe for Iot Graphics, a guide and some examples.
+To install ET Legacy Snap.
+```
+sudo snap install etlegacy --classic or --edge
+```
 
-For the guide see https://mir-server.io/docs/developer-guide
+To run ET Legacy Snap.
+```
+Type:
+   - /snap/etlegacy/current/bin/setup.sh
+     - etlegacy.etl to run client side
+     - etlegacy.etl-ded to run server side
+```
