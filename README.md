@@ -6,6 +6,11 @@ To install ET Legacy Snap.
 sudo snap install etlegacy --classic or --edge
 ```
 
+Supported Architectures:
+```
+amd64 | arm64
+```
+
 To run ET Legacy Snap.
 ```
 Type:
