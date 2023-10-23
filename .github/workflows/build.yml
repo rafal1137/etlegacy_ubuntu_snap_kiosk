@@ -35,19 +35,13 @@ jobs:
         id: snapcraft
         with:
           architecture: ${{ matrix.platform }}
-      - name: Publish
-        uses: snapcore/action-publish@v1
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-        with:
-          snap: ${{ steps.snapcraft.outputs.snap }}
-          release: edge
-          #release: stable
-          #release: candidate
-          #release: beta
-#      - name: Upload
-#        uses: actions/upload-artifact@v3
+#      - name: Publish
+#        uses: snapcore/action-publish@v1
+#        env:
+#          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
 #        with:
-#          name: snap
-#          path: ${{ steps.snapcraft.outputs.snap }}
-      
+#          snap: ${{ steps.snapcraft.outputs.snap }}
+#          release: edge
+#          release: stable
+#          release: candidate
+#          release: beta
