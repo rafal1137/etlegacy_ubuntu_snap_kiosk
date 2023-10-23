@@ -140,11 +140,13 @@ parts:
       - liblua5.4-0
       - libsqlite3-0
       - wget
+      - unzip
 
     override-prime: |
       snapcraftctl prime
-      wget -P /root/parts/etl/install/usr/local/lib/etlegacy/legacy/ curl https://www.etlegacy.com/download | grep Linux 32-bit binaries | grep -Eoi '<a [^>]+>' |  grep -Eo 'href="[^"]+"' |  grep -Eo --color=never '(http|https)://[^"]+'
-  # -O enemy_territory.zip
+      wget `curl https://www.etlegacy.com/download | grep "Legacy mod 32-bit binaries" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O etl.zip
+      unzip etl.zip
+      mv *.pk3 /root/parts/etl/install/usr/local/lib/etlegacy/legacy/
 
   # Some utility scripts for setting up the Wayland environment
   setup:
