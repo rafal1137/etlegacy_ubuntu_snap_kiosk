@@ -140,6 +140,7 @@ parts:
       - liblua5.4-0
       - libsqlite3-0
       - wget
+      - curl
 
   # Some utility scripts for setting up the Wayland environment
   setup:
