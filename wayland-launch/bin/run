@@ -26,6 +26,7 @@ do
 		unzip ${SNAP_USER_DATA}/.etlegacy/etl.zip -d ${SNAP_USER_DATA}/.etlegacy/etl
 		mv ${SNAP_USER_DATA}/.etlegacy/etl/*.pk3 ${SNAP_USER_DATA}/.etlegacy/legacy
 		rm -rf ${SNAP_USER_DATA}/.etlegacy/etl
+		rm -rf ${SNAP_USER_DATA}/.etlegacy/*.zip
 	    fi
 	    
 	    if [ ! -f ${SNAP_USER_DATA}/.etlegacy/etmain/pak0.pk3 ]; then
