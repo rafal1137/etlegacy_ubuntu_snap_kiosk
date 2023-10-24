@@ -85,7 +85,15 @@ layout:
     bind: $SNAP/usr/share/alsa
 
 parts:
+  i386:
+    plugin: nil
+    override-build: |
+      sudo dpkg --add-architecture i386
+      sudo apt-get update
+
   etl:
+    after:
+      - i386
     plugin: cmake
     cmake-parameters:
       - -DCROSS_COMPILE32=OFF
@@ -100,45 +108,45 @@ parts:
       - g++
       - gcc
       - make
-      - libcurl4-openssl-dev
-      - libsdl2-dev
-      - liblua5.4-dev
-      - libopenal-dev
-      - libtheora-dev
-      - libglew-dev
-      - libogg-dev
-      - libvorbis-dev
-      - libgl1-mesa-dev
-      - freeglut3-dev
-      - zlib1g-dev
-      - libminizip-dev
-      - libturbojpeg0-dev
-      - libssl-dev
-      - libcjson-dev
-      - libfreetype6-dev
-      - libpng-dev
-      - libsqlite3-dev
-      - libx11-dev
-      - libc-devtools
-      - libc6-dev
+      - libcurl4-openssl-dev:i386
+      - libsdl2-dev:i386
+      - liblua5.4-dev:i386
+      - libopenal-dev:i386
+      - libtheora-dev:i386
+      - libglew-dev:i386
+      - libogg-dev:i386
+      - libvorbis-dev:i386
+      - libgl1-mesa-dev:i386
+      - freeglut3-dev:i386
+      - zlib1g-dev:i386
+      - libminizip-dev:i386
+      - libturbojpeg0-dev:i386
+      - libssl-dev:i386
+      - libcjson-dev:i386
+      - libfreetype6-dev:i386
+      - libpng-dev:i386
+      - libsqlite3-dev:i386
+      - libx11-dev:i386
+      - libc-devtools:i386
+      - libc6-dev:i386
       - nasm
       - zip
 
     stage-packages:
-      - libsdl2-2.0-0
-      - libcjson1
-      - libcurl4
-      - libminizip1
-      - libtheora-bin
-      - libvorbisfile3
-      - libglew2.2
-      - libgl1
-      - libglu1-mesa
-      - freeglut3
-      - libjpeg8
-      - libstdc++6
-      - liblua5.4-0
-      - libsqlite3-0
+      - libsdl2-2.0-0:i386
+      - libcjson1:i386
+      - libcurl4:i386
+      - libminizip1:i386
+      - libtheora-bin:i386
+      - libvorbisfile3:i386
+      - libglew2.2:i386
+      - libgl1:i386
+      - libglu1-mesa:i386
+      - freeglut3:i386
+      - libjpeg8:i386
+      - libstdc++6:i386
+      - liblua5.4-0:i386
+      - libsqlite3-0:i386
       - wget
       - curl
       - unzip
