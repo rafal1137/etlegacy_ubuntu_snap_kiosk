@@ -120,7 +120,6 @@ parts:
       - libminizip-dev:i386
       - libturbojpeg0-dev:i386
       - libssl-dev:i386
-      - libcjson-dev:i386
       - libfreetype6-dev:i386
       - libpng-dev:i386
       - libsqlite3-dev:i386
@@ -132,7 +131,6 @@ parts:
 
     stage-packages:
       - libsdl2-2.0-0:i386
-      - libcjson1:i386
       - libcurl4:i386
       - libminizip1:i386
       - libglew2.2:i386
