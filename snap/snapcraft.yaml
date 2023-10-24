@@ -108,21 +108,10 @@ parts:
       - g++
       - gcc
       - make
-      - libcurl4-openssl-dev:i386
-      - libsdl2-dev:i386
-      - liblua5.4-dev:i386
-      - libopenal-dev:i386
-      - libtheora-dev:i386
       - libglew-dev:i386
       - libgl1-mesa-dev:i386
-      - freeglut3-dev:i386
       - zlib1g-dev:i386
       - libminizip-dev:i386
-      - libturbojpeg0-dev:i386
-      - libssl-dev:i386
-      - libfreetype6-dev:i386
-      - libpng-dev:i386
-      - libsqlite3-dev:i386
       - libx11-dev:i386
       - libc-devtools:i386
       - libc6-dev-i386-cross
@@ -131,16 +120,12 @@ parts:
 
     stage-packages:
       - libsdl2-2.0-0:i386
-      - libcurl4:i386
       - libminizip1:i386
       - libglew2.2:i386
       - libgl1:i386
       - libglu1-mesa:i386
       - freeglut3:i386
-      - libjpeg8:i386
       - libstdc++6:i386
-      - liblua5.4-0:i386
-      - libsqlite3-0:i386
       - wget
       - curl
       - unzip
