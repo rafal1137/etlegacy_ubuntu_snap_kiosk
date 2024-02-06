@@ -94,7 +94,7 @@ parts:
       - -DINSTALL_OMNIBOT=OFF
       - -DBUILD_MOD_PK3=OFF
     source-type: git
-    source-tag: v2.81.1
+    source-branch: master
     source: https://github.com/etlegacy/etlegacy
     build-packages:
       - g++
