@@ -86,38 +86,19 @@ layout:
 
 parts:
   etl:
-    plugin: cmake
-    cmake-parameters:
-      - -DCROSS_COMPILE32=OFF
-      - -DBUNDLED_LIBS=ON
-      - -DRENDERER_DYNAMIC=OFF
-      - -DINSTALL_OMNIBOT=OFF
-      - -DBUILD_MOD_PK3=OFF
+    plugin: dump
+    source: https://github.com/etlegacy/etlegacy
     source-type: git
     source-branch: master
-    source: https://github.com/etlegacy/etlegacy
+    override-build: |
+      snapcraft build
+      $SNAPCRAFT_PART_BUILD/easybuild.sh build -64
     build-packages:
       - g++
       - gcc
       - make
-      - libcurl4-openssl-dev
-      - libsdl2-dev
-      - liblua5.4-dev
-      - libopenal-dev
-      - libtheora-dev
       - libglew-dev
-      - libogg-dev
-      - libvorbis-dev
       - libgl1-mesa-dev
-      - freeglut3-dev
-      - zlib1g-dev
-      - libminizip-dev
-      - libturbojpeg0-dev
-      - libssl-dev
-      - libcjson-dev
-      - libfreetype6-dev
-      - libpng-dev
-      - libsqlite3-dev
       - libx11-dev
       - libc-devtools
       - libc6-dev
@@ -125,20 +106,6 @@ parts:
       - zip
 
     stage-packages:
-      - libsdl2-2.0-0
-      - libcjson1
-      - libcurl4
-      - libminizip1
-      - libtheora-bin
-      - libvorbisfile3
-      - libglew2.2
-      - libgl1
-      - libglu1-mesa
-      - freeglut3
-      - libjpeg8
-      - libstdc++6
-      - liblua5.4-0
-      - libsqlite3-0
       - wget
       - curl
       - unzip
