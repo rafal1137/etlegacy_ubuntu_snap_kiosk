@@ -89,7 +89,7 @@ parts:
     plugin: cmake
     cmake-parameters:
       - -DCROSS_COMPILE32=OFF
-      - -DBUNDLED_LIBS=OFF
+      - -DBUNDLED_LIBS=ON
       - -DRENDERER_DYNAMIC=OFF
       - -DINSTALL_OMNIBOT=OFF
       - -DBUILD_MOD_PK3=OFF
