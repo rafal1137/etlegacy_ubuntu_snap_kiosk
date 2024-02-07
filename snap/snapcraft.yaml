@@ -99,6 +99,7 @@ parts:
       - libglew-dev
       - libgl1-mesa-dev
       - libx11-dev
+      - libxext-dev
       - libc-devtools
       - libc6-dev
       - nasm
