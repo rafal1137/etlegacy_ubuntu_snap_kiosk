@@ -91,7 +91,6 @@ parts:
     source-type: git
     source-branch: master
     override-build: |
-      snapcraft build
       $SNAPCRAFT_PART_BUILD/easybuild.sh build -64
     build-packages:
       - g++
