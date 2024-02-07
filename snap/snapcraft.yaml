@@ -103,6 +103,9 @@ parts:
       - libc6-dev
       - nasm
       - zip
+      - cmake
+      - libtool
+      - autoconf
 
     stage-packages:
       - wget
