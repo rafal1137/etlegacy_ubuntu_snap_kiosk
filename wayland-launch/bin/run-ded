@@ -22,7 +22,7 @@ do
 	    if [ ! -d ${SNAP_USER_DATA}/.etlded/legacy ]; then
 		mkdir ${SNAP_USER_DATA}/.etlegacy/legacy
 		cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-	    	wget `curl https://www.etlegacy.com/download | grep "Legacy mod 32-bit binaries" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O ${SNAP_USER_DATA}/.etlegacy/etl.zip
+	    	wget `curl https://www.etlegacy.com/download | grep "All supported archive" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O ${SNAP_USER_DATA}/.etlegacy/etl.zip
 		unzip ${SNAP_USER_DATA}/.etlegacy/etl.zip  -d ${SNAP_USER_DATA}/.etlegacy/etl
 		mv ${SNAP_USER_DATA}/.etlegacy/etl/*.pk3 ${SNAP_USER_DATA}/.etlegacy/legacy
 		rm -rf ${SNAP_USER_DATA}/.etlegacy/etl
