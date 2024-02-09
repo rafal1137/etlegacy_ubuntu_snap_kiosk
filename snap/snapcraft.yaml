@@ -87,7 +87,8 @@ layout:
 
 parts:
   etl:
-    plugin: dump
+    plugin: nil
+    source: .
     override-build: |
       set -x
       if [ "$SNAPCRAFT_ARCH_TRIPLET" = "x86_64-linux-gnu" ]; then
