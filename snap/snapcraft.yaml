@@ -21,9 +21,9 @@ apps:
       - wayland
       - hardware-observe
       - audio-playback
-      - alsa
       - joystick
       - network
+      - alsa
     environment: &_environment
       PULSE_SERVER: unix:$XDG_RUNTIME_DIR/../pulse/native
       PULSE_SYSTEM: 1
