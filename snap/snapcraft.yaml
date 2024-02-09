@@ -87,60 +87,15 @@ layout:
 
 parts:
   etl:
-    plugin: cmake
-    cmake-parameters:
-      - -DCROSS_COMPILE32=OFF
-      - -DBUNDLED_LIBS=OFF
-      - -DRENDERER_DYNAMIC=OFF
-      - -DINSTALL_OMNIBOT=OFF
-      - -DBUILD_MOD_PK3=OFF
-      - -DCMAKE_BUILD_TYPE=Debug
-    source-type: git
-    source-branch: master
-    source: https://github.com/etlegacy/etlegacy
-    build-packages:
-      - g++
-      - gcc
-      - make
-      - libcurl4-openssl-dev
-      - libsdl2-dev
-      - liblua5.4-dev
-      - libopenal-dev
-      - libtheora-dev
-      - libglew-dev
-      - libogg-dev
-      - libvorbis-dev
-      - libgl1-mesa-dev
-      - freeglut3-dev
-      - zlib1g-dev
-      - libminizip-dev
-      - libturbojpeg0-dev
-      - libssl-dev
-      - libcjson-dev
-      - libfreetype6-dev
-      - libpng-dev
-      - libsqlite3-dev
-      - libx11-dev
-      - libc-devtools
-      - libc6-dev
-      - nasm
-      - zip
-
+    plugin: dump
+    override-build: |
+      set -x
+      if [ "$SNAPCRAFT_ARCH_TRIPLET" = "x86_64-linux-gnu" ]; then
+      	wget https://www.etlegacy.com/workflow-files/dl/9605be8ef9d3691fc9465c69f6788a0a5724c08f/lnxx8664/etlegacy-v2.81.1-583-g9605be8-x86_64.tar.gz
+      else
+      	wget https://www.etlegacy.com/workflow-files/dl/9605be8ef9d3691fc9465c69f6788a0a5724c08f/lnxarm64/etlegacy-v2.81.1-583-g9605be8-aarch64.tar.gz
+      fi
     stage-packages:
-      - libsdl2-2.0-0
-      - libcjson1
-      - libcurl4
-      - libminizip1
-      - libtheora-bin
-      - libvorbisfile3
-      - libglew2.2
-      - libgl1
-      - libglu1-mesa
-      - freeglut3
-      - libjpeg8
-      - libstdc++6
-      - liblua5.4-0
-      - libsqlite3-0
       - wget
       - curl
       - unzip
