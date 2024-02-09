@@ -21,6 +21,7 @@ apps:
       - wayland
       - hardware-observe
       - audio-playback
+      - alsa
       - joystick
       - network
     environment: &_environment
