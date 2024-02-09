@@ -93,11 +93,9 @@ parts:
       set -x
       if [ "$SNAPCRAFT_ARCH_TRIPLET" = "x86_64-linux-gnu" ]; then
       	wget https://www.etlegacy.com/workflow-files/dl/9605be8ef9d3691fc9465c69f6788a0a5724c08f/lnxx8664/etlegacy-v2.81.1-583-g9605be8-x86_64.tar.gz
-      	chmod 777 etlegacy-v2.81.1-583-g9605be8-x86_64.tar.gz
       	tar –xvzf etlegacy-v2.81.1-583-g9605be8-x86_64.tar.gz
       else
       	wget https://www.etlegacy.com/workflow-files/dl/9605be8ef9d3691fc9465c69f6788a0a5724c08f/lnxarm64/etlegacy-v2.81.1-583-g9605be8-aarch64.tar.gz
-      	chmod 777 etlegacy-v2.81.1-583-g9605be8-aarch64.tar.gz
       	tar –xvzf etlegacy-v2.81.1-583-g9605be8-aarch64.tar.gz
       fi
     stage-packages:
