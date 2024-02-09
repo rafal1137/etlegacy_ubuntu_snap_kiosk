@@ -94,6 +94,7 @@ parts:
       - -DRENDERER_DYNAMIC=OFF
       - -DINSTALL_OMNIBOT=OFF
       - -DBUILD_MOD_PK3=OFF
+      - -DCMAKE_BUILD_TYPE=Debug
     source-type: git
     source-branch: master
     source: https://github.com/etlegacy/etlegacy
