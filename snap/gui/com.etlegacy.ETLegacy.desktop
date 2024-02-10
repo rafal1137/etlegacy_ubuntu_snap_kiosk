@@ -4,7 +4,7 @@ Name=ET: Legacy
 GenericName=World War II first-person shooter
 Comment=World War II first-person shooter
 Icon=${SNAP}/usr/local/share/icons/hicolor/scalable/apps/etl.svg
-Exec=etlegacy.etl
+Exec=env WAYLAND_DISPLAY=wayland-0 etlegacy.etl
 Terminal=false
 MimeType=x-scheme-handler/et;
 Categories=Game;ActionGame;
