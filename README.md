@@ -11,6 +11,11 @@ Supported Architectures:
 amd64 | arm64
 ```
 
+Before you run type in console.
+```
+export XDG_SESSION_TYPE=wayland
+```
+
 To run ET Legacy Snap.
 ```
 Type:
