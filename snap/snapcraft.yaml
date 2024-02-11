@@ -97,10 +97,8 @@ parts:
       - -DCMAKE_BUILD_TYPE=Debug
     source-type: git
     #source-tag: v2.81.1
-    #source-commit: 7b775b5e51ccfae30223d328e5d481d462712623
     source-branch: master
-    #source: https://github.com/etlegacy/etlegacy
-    source: https://github.com/rafal1137/etlegacy
+    source: https://github.com/etlegacy/etlegacy
     build-packages:
       - g++
       - gcc
