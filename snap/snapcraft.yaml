@@ -30,8 +30,8 @@ apps:
       PULSE_RUNTIME_PATH: /var/run/pulse
       LD_LIBRARY_PATH: ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}:${SNAP}/usr/lib/${SNAPCRAFT_ARCH_TRIPLET}/pulseaudio
 
-  etl-ded:
-    command: bin/run-ded
+  etlded:
+    command: bin/runded
     plugs:
       - hardware-observe
       - network
