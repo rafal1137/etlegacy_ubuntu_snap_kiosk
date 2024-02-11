@@ -20,13 +20,13 @@ do
 	    fi
 	    
 	    if [ ! -d ${SNAP_USER_DATA}/.etlded/legacy ]; then
-		mkdir ${SNAP_USER_DATA}/.etlegacy/legacy
-		cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlegacy
-	    	wget `curl https://www.etlegacy.com/download | grep "All supported archive" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O ${SNAP_USER_DATA}/.etlegacy/etl.zip
-		unzip ${SNAP_USER_DATA}/.etlegacy/etl.zip  -d ${SNAP_USER_DATA}/.etlegacy/etl
-		mv ${SNAP_USER_DATA}/.etlegacy/etl/*.pk3 ${SNAP_USER_DATA}/.etlegacy/legacy
-		rm -rf ${SNAP_USER_DATA}/.etlegacy/etl
-		rm -rf ${SNAP_USER_DATA}/.etlegacy/*.zip
+		mkdir ${SNAP_USER_DATA}/.etlded/legacy
+		cp -R ${SNAP}/usr/local/lib/etlegacy/legacy ${SNAP_USER_DATA}/.etlded
+	    	wget `curl https://www.etlegacy.com/download | grep "All supported archive" | grep -Eoi '<a [^>]+>' |  grep -Eo 'href=\"[^\\\"]+\"' |  grep -Eo '(http|https):\/\/[^\"]+'` -O ${SNAP_USER_DATA}/.etlded/etl.zip
+		unzip ${SNAP_USER_DATA}/.etlded/etl.zip  -d ${SNAP_USER_DATA}/.etlded/etl
+		mv ${SNAP_USER_DATA}/.etlded/etl/*.pk3 ${SNAP_USER_DATA}/.etlded/legacy
+		rm -rf ${SNAP_USER_DATA}/.etlded/etl
+		rm -rf ${SNAP_USER_DATA}/.etlded/*.zip
 	    fi
 	    
 	    if [ ! -f ${SNAP_USER_DATA}/.etlded/etmain/pak0.pk3 ]; then
