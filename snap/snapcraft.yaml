@@ -1,10 +1,5 @@
 name: etlegacy
 adopt-info: etl
-summary: FPS Game
-description: |
-  Welcome to ET: Legacy, an open source project that aims to create a fully compatible client
-  and server for the popular online FPS game Wolfenstein: Enemy Territory - whose gameplay
-  is still considered unmatched by many, despite its great age.
 
 base: core22
 compression: lzo
@@ -98,7 +93,7 @@ parts:
     source-type: git
     source-branch: master
     source: https://github.com/etlegacy/etlegacy
-    parse-info: [/root/parts/etl/install/usr/local/share/metainfo/com.etlegacy.ETLegacy.metainfo.xml]
+    parse-info: [$CRAFT_PART_INSTALL/usr/local/share/metainfo/com.etlegacy.ETLegacy.metainfo.xml]
     build-packages:
       - g++
       - gcc
