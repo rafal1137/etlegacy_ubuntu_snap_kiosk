@@ -1,5 +1,5 @@
 name: etlegacy
-version: "v2.81.1"
+adopt-info: etl
 summary: FPS Game
 description: |
   Welcome to ET: Legacy, an open source project that aims to create a fully compatible client
@@ -16,6 +16,7 @@ apps:
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
     command: &_command bin/run
+    common-id: com.etlegacy.ETLegacy
     plugs: &_plugs
       - opengl
       - wayland
@@ -95,9 +96,9 @@ parts:
       - -DINSTALL_OMNIBOT=OFF
       - -DBUILD_MOD_PK3=OFF
     source-type: git
-    #source-tag: v2.81.1
     source-branch: master
     source: https://github.com/etlegacy/etlegacy
+    parse-info: [/root/parts/etl/install/usr/local/share/metainfo/com.etlegacy.ETLegacy.metainfo.xml]
     build-packages:
       - g++
       - gcc
