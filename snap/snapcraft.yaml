@@ -11,7 +11,6 @@ apps:
       - bin/graphics-core22-wrapper
       - bin/wayland-launch
     command: &_command bin/run
-    common-id: com.etlegacy.ETLegacy
     plugs: &_plugs
       - opengl
       - wayland
@@ -93,7 +92,8 @@ parts:
     source-type: git
     source-branch: master
     source: https://github.com/etlegacy/etlegacy
-    parse-info: [$CRAFT_PART_INSTALL/usr/local/share/metainfo/com.etlegacy.ETLegacy.metainfo.xml]
+    parse-info: [parts/etl/src/misc/com.etlegacy.ETLegacy.metainfo.xml.in]
+    #parse-info: [parts/etl/install/usr/local/share/mime/packages/etlegacy.xml]
     build-packages:
       - g++
       - gcc
