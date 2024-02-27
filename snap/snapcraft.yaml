@@ -92,8 +92,7 @@ parts:
     source-type: git
     source-branch: master
     source: https://github.com/etlegacy/etlegacy
-    parse-info: [parts/etl/src/misc/com.etlegacy.ETLegacy.metainfo.xml.in]
-    #parse-info: [parts/etl/install/usr/local/share/mime/packages/etlegacy.xml]
+    parse-info: [usr/local/share/metainfo/com.etlegacy.ETLegacy.metainfo.xml]
     build-packages:
       - g++
       - gcc
