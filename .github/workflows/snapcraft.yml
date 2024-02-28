@@ -26,7 +26,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
         with:
-          repository: etlegacy/etlegacy-snap
+          repository: rafal1137/etlegacy_ubuntu_snap_kiosk
           fetch-depth: 1
 
       - name: Setup QEMU
