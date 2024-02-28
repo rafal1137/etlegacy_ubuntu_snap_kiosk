@@ -1,8 +1,8 @@
-name: CI
+name: Snapcraft
 
 # Controls when the workflow will run
 on:
-  workflow_dispatch:
+  #workflow_dispatch:
   workflow_run:
     workflows: ["ETLBuild"]
     types:
@@ -26,7 +26,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
         with:
-          repository: rafal1137/etlegacy-snap
+          repository: etlegacy/etlegacy-snap
           fetch-depth: 1
 
       - name: Setup QEMU
