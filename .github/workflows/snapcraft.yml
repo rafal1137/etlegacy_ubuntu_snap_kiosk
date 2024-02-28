@@ -26,7 +26,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          repository: rafal1137/etlegacy-snap
           fetch-depth: 1
 
       - name: Setup QEMU
