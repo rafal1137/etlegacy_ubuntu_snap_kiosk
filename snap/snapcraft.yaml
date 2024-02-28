@@ -8,7 +8,7 @@ adopt-info: etl
 
 base: core22
 compression: lzo
-confinement: devmode
+confinement: strict
 
 apps:
   etl:
